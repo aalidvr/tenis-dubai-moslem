@@ -1,24 +1,14 @@
-import { defineConfig } from "vite";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact from "@vitejs/plugin-react";
-import tsconfigPaths from "vite-tsconfig-paths";
-import tailwindcss from "@tailwindcss/vite";
-import path from "node:path";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [
-    tanstackStart({
-      target: "vercel",
-    }),
+    tanstackStart({ target: 'vercel' }), // 👈 باید اولین plugin باشه
     tsconfigPaths(),
     tailwindcss(),
-    viteReact(),
+    react(),
   ],
-
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-    dedupe: ["react", "react-dom", "@tanstack/react-router"],
-  },
-});
+})

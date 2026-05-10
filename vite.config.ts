@@ -7,11 +7,11 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [
-    tsconfigPaths(),
-    tailwindcss(),
     tanstackStart({
       target: "vercel",
     }),
+    tsconfigPaths(),
+    tailwindcss(),
     viteReact(),
   ],
 
